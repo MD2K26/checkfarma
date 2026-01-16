@@ -1,0 +1,41 @@
+-- RODE ESTE SCRIPT NO SQL EDITOR DO SUPABASE PARA ATUALIZAR AS LOJAS COM CIDADES
+-- AVISO: Isso removerá auditorias antigas vinculadas às lojas fictícias para evitar erros de vínculo.
+
+-- 1. Limpar dados antigos
+TRUNCATE auditorias, itens_auditoria, lojas CASCADE;
+
+-- 2. Inserir Lojas Reais com Cidades
+INSERT INTO lojas (id, nome, cidade, ativa) VALUES 
+('CDA', 'CDA', 'DIVINOPOLIS', true),
+('CDABC', 'CD-DROGARIA ABC', 'DIVINOPOLIS', true),
+('LJ01', 'DROGARIA ABC LJ 01', 'DIVINOPOLIS', true),
+('LJ02', 'DROGARIA ABC LJ 02', 'DIVINOPOLIS', true),
+('LJ03', 'DROGARIA ABC LJ 03', 'DIVINOPOLIS', true),
+('LJ06', 'DROGARIA ABC LJ 06', 'DIVINOPOLIS', true),
+('LJ07', 'DROGARIA ABC LJ 07', 'DIVINOPOLIS', true),
+('LJ08', 'DROGARIA ABC LJ 08', 'FORMIGA', true),
+('LJ12', 'DROGARIA ABC LJ 12', 'PARA DE MINAS', true),
+('LJ20', 'DROGARIA ABC LJ 20', 'LAGOA DA PRATA', true),
+('LJ22', 'DROGARIA ABC LJ 22', 'OLIVEIRA', true),
+('LJ23', 'DROGARIA ABC LJ 23', 'LAVRAS', true),
+('LJ24', 'DROGARIA ABC LJ 24', 'PASSOS', true),
+('LJ26', 'DROGARIA ABC LJ 26', 'BETIM', true),
+('LJ27', 'DROGARIA ABC LJ 27', 'VARGINHA', true),
+('LJ28', 'DROGARIA ABC LJ 28', 'PIUMHI', true),
+('LJ29', 'DROGARIA ABC LJ 29', 'CAMPO BELO', true),
+('LJ30', 'DROGARIA ABC LJ 30', 'ARCOS', true),
+('LJ31', 'DROGARIA ABC LJ 31', 'SANTO ANTONIO DO MONTE', true),
+('LJ32', 'DROGARIA ABC LJ 32', 'ARAXA', true),
+('LJ33', 'DROGARIA ABC LJ 33', 'NOVA SERRANA', true),
+('LJ34', 'DROGARIA ABC LJ 34', 'PASSOS', true),
+('LJ35', 'DROGARIA ABC LJ 35', 'BOA ESPERANCA', true),
+('LJ48', 'DROGARIA ABC LJ 48', 'ITUIUTABA', true),
+('LJ500', 'DROGARIA ABC LJ 500', 'PATOS DE MINAS', true),
+('LJ503', 'DROGARIA ABC LJ 503', 'POUSO ALEGRE', true),
+('LJ504', 'DRUGSTORE ABC LJ 504', 'DIVINOPOLIS', true),
+('LJ505', 'DRUGSTORE ABC LJ 505', 'ALFENAS', true),
+('LJ506', 'DRUGSTORE ABC LJ 506', 'ITAUNA', true),
+('LJ507', 'DRUGSTORE ABC LJ 507', 'PARAISOPOLIS', true),
+('LJ506_CLAUDIO', 'DRUGSTORE ABC LJ 508', 'CLAUDIO', true), -- Fixed ID collision if any
+('LJ509', 'DRUGSTORE ABC LJ 509', 'CANDEIAS', true),
+('LJ510', 'DRUGSTORE ABC LJ 510', 'BAMBUI', true);

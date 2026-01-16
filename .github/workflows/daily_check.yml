@@ -1,0 +1,29 @@
+name: Daily Audit Check
+
+on:
+  schedule:
+    # Runs at 13:00 UTC (10:00 AM Brazil Time)
+    - cron: '0 13 * * 1-6' # Mon-Sat
+  workflow_dispatch: # Allows manual run button
+
+jobs:
+  check-audits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Daily Check
+        run: node scripts/daily_check.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
